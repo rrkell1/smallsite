@@ -1,0 +1,625 @@
+body{
+    background-color: #999696;
+    font-family: canada-type-gibson, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+        /*
+        font-family: flood-std, sans-serif;
+
+        font-weight: 400;
+
+        font-style: normal;*/
+
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    width: 1080px;
+    margin-left:  auto; /* centering the page*/
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+
+h1{ margin-top: 150px;
+    font-size: 50px;
+    text-align: center;
+    font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    
+h2{ font-size: 25px;
+        font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    }
+    
+h3{
+    font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    text-align: center;
+}
+
+h4{ font-size: 50px;
+    text-align: center;
+    font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+h6{
+    font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 30px;
+    text-align: center;
+    color: white; 
+}
+
+
+/*--navbar----------------------------*/
+.navbar {
+    background-color: #282627 ;
+    display: flex;
+    padding: 16px;
+    margin:auto;
+    font-family: sans-serif;
+    color: white;
+    position: fixed;
+    width: 1080px;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar_items,
+  .navbar {
+    flex-direction: column;
+  }
+.navbar a {
+    color: white;
+    font-size: 1.2em; 
+    text-decoration: none;
+}
+.navbar a:hover {
+    color: gray;
+}
+.navbar_link-brand {
+    font-size: 16px;
+}
+.navbar_link {
+    padding: 8px 20px;
+}
+.navbar .active {
+    color: aqua;
+}
+.navbar_items {
+    font-size: 16px;
+    display:none;
+}
+.navbar_items-right {
+    margin-left:0;
+}
+.navbar_link-toggle {
+    display: none;
+    font-size: 2.5em;
+    color: white;
+}
+.navbar_toggleShow {
+    display: flex;
+  }
+.navbar_link-toggle {
+    right: 5%;
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+    color: white;
+} 
+.navbar_link a {
+    float: right;
+    margin-right: 10%;
+}
+.navtext{
+    font-size: 60px;
+    margin: 0;
+    /* reference 
+    https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element*/
+    position: absolute;
+    top: 10px;  
+    /* position the top  edge of the element at the middle of the parent */
+    left: 50%; 
+    /* position the left edge of the element at the middle of the parent */
+    transform: translateX(-50%); 
+    /* This is a shorthand of translateX(-50%) and translateY(-50%) */
+    font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/*--navbar----------------------------*/
+
+
+.grid-container {
+    margin-top: 100px;
+}
+
+/* third image slider - start */
+
+/* derived from
+https://codepen.io/AMKohn/pen/EKJHf*/
+
+.slides {
+    padding: 0;
+    width: 940px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 50px;
+    opacity: 0;
+    width: 940px;
+    display: block;
+    position: absolute;
+
+    transform: skew(0);
+
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	  opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+.pic {
+    top:200px;
+}
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+	width: 100%;
+	top: 650px;
+	height: 11px;
+	display: block;
+	position: absolute;
+	text-align: center;
+}
+
+.nav-dots .nav-dot {
+	top: -5px;
+	width: 11px;
+	height: 11px;
+	margin: 0 4px;
+	position: relative;
+	border-radius: 100%;
+	display: inline-block;
+	background-color: white;
+}
+
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: black;
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,{
+	background: yellow;
+}
+
+
+.prev, .next {
+    margin-top: 100px;
+}
+/* third image slider - end */
+
+/*-----------------------------------------*/
+
+
+.hank {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin-top: -5px;
+}
+
+.parallax1 {
+  /* The image used */
+  background-image: url("../imgs/twy16.png");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  /* The image used */
+  background-image: url("../imgs/twy7.jpg");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax3 {
+  /* The image used */
+  background-image: url("../imgs/twy8.jpg");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax4 {
+  /* The image used */
+  background-image: url("../imgs/twy15.jpg");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax5 {
+  /* The image used */
+  background-image: url("../imgs/twy10.jpg");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax6 {
+  /* The image used */
+  background-image: url("../imgs/twy11.jpg");
+
+  /* Set a specific height */
+  height: 300px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* about page */
+
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.tourinfo p{
+    text-align: center;
+}
+    
+    
+.album{
+        width: 500px;
+        height: 500px;
+    }
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 33%;
+  padding: 0 10px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.caption{
+    padding: 5px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+    
+        .navbar_link-toggle {
+    display: none;
+    font-size: 1.4em;
+    color: white;
+}
+}
+
+.footer_home{
+    position: absolute;
+    top: 800px;
+    background-color: #262626;
+    color: white;
+    width: 1080px;
+}
+    
+
+.footer_home p{
+    margin-left:400px;
+}
+    
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #262626;
+  color: white;
+  text-align: center;
+}
+
+
+.bioimage{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.tourinfo{
+    text-align: center;
+    
+}
+
+
+
+.container3{
+  padding: 1em 0;
+  float: left;
+  width: 50%;
+}
+@media screen and (max-width: 640px){
+  .container3{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .container3{
+    width: 33.33333%;
+  }
+}
+
+.container3 .title{
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.content .content-overlay {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay{
+  opacity: 1;
+}
+
+.content-image{
+  width: 100%;
+}
+
+.content-details {
+  position: absolute;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details{
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+}
+
+.content-details h3{
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+
+.content-details p{
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.fadeIn-bottom{
+  top: 80%;
+}
+
+.content-text{
+    padding: 10px;
+    text-align: justify;
+}
+
+.content-title{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: grey;
+}
+
+
+
+
+.yearbar {
+  width: 1080px;
+  background-color: white;
+  position: fixed;
+  top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+     font-family: flood-std, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+  /*remove the default style for <a> tag*/
+}
+
+.yearbar ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #999696;
+}
+
+.yearbar ul li {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+}
